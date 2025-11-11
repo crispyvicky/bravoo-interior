@@ -1,0 +1,1 @@
+export { InstagramFeedSection } from "./InstagramFeedSection";
