@@ -145,18 +145,18 @@ const paymentMethods = [
 
 export const ContactFooterSection = (): JSX.Element => {
   return (
-    <footer className="w-full bg-primary-01 py-20 px-[170px]">
-      <div className="flex flex-col gap-[79px]">
-        <div className="flex flex-col items-center gap-[79px]">
-          <h2 className="w-[809px] font-heading-03 font-[number:var(--heading-03-font-weight)] [font-style:var(--heading-03-font-style)] text-primary-03 text-[length:var(--heading-03-font-size)] text-center tracking-[var(--heading-03-letter-spacing)] leading-[var(--heading-03-line-height)]">
+    <footer className="w-full bg-primary-01 py-12 md:py-20 px-4 md:px-[170px]">
+      <div className="flex flex-col gap-8 md:gap-[79px]">
+        <div className="flex flex-col items-center gap-8 md:gap-[79px]">
+          <h2 className="w-full md:w-[809px] font-heading-03 font-[number:var(--heading-03-font-weight)] [font-style:var(--heading-03-font-style)] text-primary-03 text-2xl md:text-3xl lg:text-[length:var(--heading-03-font-size)] text-center tracking-[var(--heading-03-letter-spacing)] leading-[var(--heading-03-line-height)]">
             We Provide best handpicked home decor
           </h2>
 
           <Button
             variant="outline"
-            className="w-[301px] h-[69px] bg-transparent border-[#fcfbfa] hover:bg-transparent"
+            className="w-full md:w-[301px] h-[50px] md:h-[69px] bg-transparent border-[#fcfbfa] hover:bg-transparent"
           >
-            <span className="font-button-02 font-[number:var(--button-02-font-weight)] text-primary-03 text-[length:var(--button-02-font-size)] tracking-[var(--button-02-letter-spacing)] leading-[var(--button-02-line-height)] [font-style:var(--button-02-font-style)]">
+            <span className="font-button-02 font-[number:var(--button-02-font-weight)] text-primary-03 text-sm md:text-[length:var(--button-02-font-size)] tracking-[var(--button-02-letter-spacing)] leading-[var(--button-02-line-height)] [font-style:var(--button-02-font-style)]">
               EXPLORE OUR PRODUCTS
             </span>
           </Button>
@@ -164,41 +164,41 @@ export const ContactFooterSection = (): JSX.Element => {
 
         <Separator className="bg-secondary-03 h-px" />
 
-        <div className="flex gap-[104px]">
-          <div className="flex-1 flex flex-col gap-8">
-            <h3 className="font-label-big font-[number:var(--label-big-font-weight)] text-secondary-03 text-[length:var(--label-big-font-size)] tracking-[var(--label-big-letter-spacing)] leading-[var(--label-big-line-height)] [font-style:var(--label-big-font-style)]">
+        <div className="flex flex-col md:flex-row gap-8 md:gap-[104px]">
+          <div className="flex-1 flex flex-col gap-6 md:gap-8">
+            <h3 className="font-label-big font-[number:var(--label-big-font-weight)] text-secondary-03 text-sm md:text-[length:var(--label-big-font-size)] tracking-[var(--label-big-letter-spacing)] leading-[var(--label-big-line-height)] [font-style:var(--label-big-font-style)]">
               SUBSCRIBE TO RECEIVE GRAPE NEWS &amp; OFFERS
             </h3>
 
-            <div className="relative bg-primary-02 h-[68px]">
+            <div className="relative bg-primary-02 h-[50px] md:h-[68px]">
               <Input
                 placeholder="Enter your email"
-                className="h-full bg-transparent border-0 text-secondary-02 font-body-02 font-[number:var(--body-02-font-weight)] text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)] placeholder:text-secondary-02 px-6"
+                className="h-full bg-transparent border-0 text-secondary-02 font-body-02 font-[number:var(--body-02-font-weight)] text-sm md:text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)] placeholder:text-secondary-02 px-4 md:px-6"
               />
               <img
-                className="absolute top-[22px] right-6 w-6 h-6 pointer-events-none"
+                className="absolute top-1/2 -translate-y-1/2 right-4 md:right-6 w-5 md:w-6 h-5 md:h-6 pointer-events-none"
                 alt="Right arrow"
                 src="/right-arrow.svg"
               />
             </div>
 
-            <div className="flex gap-4 items-start">
-              <Checkbox className="w-4 h-4 rounded border-[#f8f5f3] mt-px" />
-              <p className="flex-1 font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
+            <div className="flex gap-2 md:gap-4 items-start">
+              <Checkbox className="w-4 h-4 rounded border-[#f8f5f3] mt-1" />
+              <p className="flex-1 font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
                 I&#39;ve read the Privacy Policy and I consent to Halal Interior
                 sending me marketing communications
               </p>
             </div>
           </div>
 
-          <div className="flex gap-[104px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-[104px]">
             {footerColumns.map((column, columnIndex) => (
-              <nav key={columnIndex} className="flex flex-col gap-[19px]">
+              <nav key={columnIndex} className="flex flex-col gap-3 md:gap-[19px]">
                 {column.links.map((link, linkIndex) => (
                   <a
                     key={linkIndex}
                     href="#"
-                    className="font-label-medium font-[number:var(--label-medium-font-weight)] text-secondary-03 text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:text-primary-03 transition-colors"
+                    className="font-label-medium font-[number:var(--label-medium-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:text-primary-03 transition-colors"
                   >
                     {link}
                   </a>
@@ -210,25 +210,25 @@ export const ContactFooterSection = (): JSX.Element => {
 
         <Separator className="bg-secondary-03 h-px" />
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2 md:gap-3">
             <img className="w-6 h-4" alt="Us" src="/us.svg" />
-            <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
+            <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
               United States
             </span>
-            <ChevronDownIcon className="w-4 h-4 text-secondary-03" />
+            <ChevronDownIcon className="w-3 md:w-4 h-3 md:h-4 text-secondary-03" />
           </div>
 
-          <div className="flex items-center gap-6">
-            <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
+            <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
               We Accept
             </span>
 
-            <div className="flex gap-4">
+            <div className="flex gap-2 md:gap-4">
               {paymentMethods.map((method, index) => (
                 <div
                   key={index}
-                  className="w-[46px] h-8 bg-primary-03 rounded relative flex items-center justify-center"
+                  className="w-8 md:w-[46px] h-6 md:h-8 bg-primary-03 rounded relative flex items-center justify-center"
                 >
                   {method.isMultiple ? (
                     method.images?.map((img, imgIndex) => (
@@ -261,12 +261,12 @@ export const ContactFooterSection = (): JSX.Element => {
         <Separator className="bg-secondary-03 h-px" />
 
         <div className="relative">
-          <div className="grid grid-cols-4 h-[58px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 h-auto md:h-[58px]">
             {socialLinks.map((social, index) => (
               <React.Fragment key={index}>
                 <a
                   href="#"
-                  className="flex items-center justify-center font-label-small font-[number:var(--label-small-font-weight)] text-secondary-03 text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-primary-03 transition-colors border-l border-secondary-03 first:border-l-0"
+                  className="flex items-center justify-center font-label-small font-[number:var(--label-small-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-primary-03 transition-colors border-l border-secondary-03 first:border-l-0 py-3 md:py-0"
                 >
                   {social.name}
                 </a>
@@ -278,12 +278,12 @@ export const ContactFooterSection = (): JSX.Element => {
 
         <Separator className="bg-secondary-03 h-px" />
 
-        <div className="flex items-center justify-between">
-          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center md:text-left">
             © 2021 CHIRANJITH.COM. ALL RIGHTS RESERVED.
           </p>
 
-          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-[length:var(--label-small-font-size)] text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)]">
+          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)]">
             PRIVACY POLICY | TERMS OF USE
           </p>
         </div>

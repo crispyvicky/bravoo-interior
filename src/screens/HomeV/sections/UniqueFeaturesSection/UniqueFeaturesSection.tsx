@@ -23,18 +23,18 @@ const features = [
 
 export const UniqueFeaturesSection = (): JSX.Element => {
   return (
-    <section className="w-full flex justify-center gap-[177px] py-8">
+    <section className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-[177px] py-8 px-4">
       {features.map((feature, index) => (
-        <div key={index} className="w-[380px] flex flex-col items-center">
-          <div className="font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-[length:var(--label-medium-font-size)] text-center tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] whitespace-nowrap [font-style:var(--label-medium-font-style)]">
+        <div key={index} className="w-full md:w-[380px] flex flex-col items-center">
+          <div className="font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-sm md:text-[length:var(--label-medium-font-size)] text-center tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] whitespace-nowrap [font-style:var(--label-medium-font-style)]">
             {feature.label}
           </div>
 
-          <h3 className="w-full mt-1.5 font-heading-05 font-[number:var(--heading-05-font-weight)] text-primary-01 text-[length:var(--heading-05-font-size)] text-center tracking-[var(--heading-05-letter-spacing)] leading-[var(--heading-05-line-height)] [font-style:var(--heading-05-font-style)]">
+          <h3 className="w-full mt-1.5 font-heading-05 font-[number:var(--heading-05-font-weight)] text-primary-01 text-xl md:text-[length:var(--heading-05-font-size)] text-center tracking-[var(--heading-05-letter-spacing)] leading-[var(--heading-05-line-height)] [font-style:var(--heading-05-font-style)]">
             {feature.heading}
           </h3>
 
-          <p className="w-[374px] mt-5 font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-[length:var(--body-02-font-size)] text-center tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
+          <p className="w-full md:w-[374px] mt-5 font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-sm md:text-[length:var(--body-02-font-size)] text-center tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
             {feature.description}
           </p>
         </div>
