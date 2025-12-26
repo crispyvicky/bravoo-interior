@@ -116,7 +116,7 @@ export const MainHeaderSection = (): JSX.Element => {
           {/* Footer in Menu */}
           <div className="p-8 bg-white/5 border-t border-white/10">
             <p className="text-white/50 text-sm mb-2">Hyderabad, India</p>
-            <p className="text-xl font-heading-04 italic">BADIGAR SPACE WORKS</p>
+            <p className="text-xl font-heading-04 italic">INFINITY INTERIORS</p>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export const About = (): JSX.Element => {
                         ESTABLISHED 1996
                     </span>
                     <h1 className="font-heading-01 text-5xl md:text-8xl text-white mb-8 animate-fade-up">
-                        BADIGAR SPACE WORKS
+                        INFINITY INTERIORS
                     </h1>
                     <p className="font-body-01 text-xl text-gray-200 tracking-wide font-light max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: "0.2s" }}>
                         Crafting legacies through timeless interior design.
@@ -48,7 +48,7 @@ export const About = (): JSX.Element => {
                             This philosophy drives everything we do at INFINITY  Interiors. Founded in 1996 in Hyderabad, our journey is not just about decorating rooms; it's about elevating lifestyles. We believe that every space should be a vantage point—a place where you feel at the peak of comfort, style, and inspiration.
                         </p>
                         <p className="font-body-01 text-lg text-secondary-01 leading-relaxed">
-                            INFINITY  stands for <strong>Badigar Space Works</strong>. For nearly 30 years, our family of artisans has blended traditional Indian craftsmanship with modern design sensibilities.
+                            INFINITY  stands for <strong>INFINITY INTERIORS</strong>. For nearly 30 years, our family of artisans has blended traditional Indian craftsmanship with modern design sensibilities.
                         </p>
                     </div>
                 </div>
