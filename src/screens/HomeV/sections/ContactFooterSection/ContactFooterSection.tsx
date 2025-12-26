@@ -41,7 +41,7 @@ const socialLinks = [
 
 export const ContactFooterSection = (): JSX.Element => {
   return (
-    <footer className="w-full bg-primary-01 py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-[170px]">
+    <footer className="w-full bg-primary-01 relative z-50 py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-[170px]">
       <div className="flex flex-col gap-8 md:gap-[79px]">
         <div className="flex flex-col items-center gap-8 md:gap-[79px]">
           <h2 className="w-full max-w-[809px] font-heading-03 font-[number:var(--heading-03-font-weight)] [font-style:var(--heading-03-font-style)] text-primary-03 text-3xl md:text-4xl lg:text-5xl text-center tracking-[var(--heading-03-letter-spacing)] leading-tight mb-4">

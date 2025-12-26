@@ -112,18 +112,21 @@ export const CategoryDisplaySection = (): JSX.Element => {
         </div>
 
         {/* CTA Button */}
-        <Link href="/portfolio">
-          <Button
-            variant="link"
-            className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)]
-              text-primary-01 text-[length:var(--button-01-font-size)]
-              tracking-[var(--button-01-letter-spacing)]
-              leading-[var(--button-01-line-height)]
-              underline [font-style:var(--button-01-font-style)]"
-          >
-            SEE MORE
-          </Button>
-        </Link>
+        {/* CTA Button */}
+        <div className="relative z-20 mt-8">
+          <Link href="/portfolio">
+            <Button
+              variant="link"
+              className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)]
+                text-primary-01 text-[length:var(--button-01-font-size)]
+                tracking-[var(--button-01-letter-spacing)]
+                leading-[var(--button-01-line-height)]
+                underline [font-style:var(--button-01-font-style)]"
+            >
+              SEE MORE
+            </Button>
+          </Link>
+        </div>
 
       </div>
     </section>
