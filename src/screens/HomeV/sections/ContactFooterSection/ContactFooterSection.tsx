@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "../../../../components/ui/button";
 import { Checkbox } from "../../../../components/ui/checkbox";
 import { Input } from "../../../../components/ui/input";
@@ -49,7 +49,7 @@ export const ContactFooterSection = (): JSX.Element => {
           </h2>
 
           <div className="flex flex-col items-center gap-4">
-            <Link to="/contact">
+            <Link href="/contact">
               <Button
                 variant="outline"
                 className="w-full md:w-[301px] h-[50px] md:h-[69px] bg-transparent border-[#fcfbfa] hover:bg-transparent"
@@ -94,7 +94,7 @@ export const ContactFooterSection = (): JSX.Element => {
                 {column.links.map((link, linkIndex) => (
                   <Link
                     key={linkIndex}
-                    to={link.path}
+                    href={link.path}
                     className="font-label-medium font-[number:var(--label-medium-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:text-white transition-colors"
                   >
                     {link.label}
@@ -129,7 +129,9 @@ export const ContactFooterSection = (): JSX.Element => {
           {socialLinks.map((social, index) => (
             <React.Fragment key={index}>
               <a
-                href="#"
+                href="https://www.instagram.com/infinityinteriors_18/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center font-label-small font-[number:var(--label-small-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white transition-colors border-l border-secondary-03/20 first:border-l-0 py-3 md:py-0"
               >
                 {social.name}
@@ -144,10 +146,14 @@ export const ContactFooterSection = (): JSX.Element => {
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8">
         <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center md:text-left">
-          © 2024 INFINITY  INTERIORS. ALL RIGHTS RESERVED.
+          © 2000 INFINITY INTERIORS. ALL RIGHTS RESERVED.
         </p>
 
-        <Link to="/privacy" className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white">
+        <a href="https://bravoo.in" target="_blank" rel="noopener noreferrer" className="font-label-small text-secondary-02 text-xs tracking-widest hover:text-white transition-colors">
+          Developed by <span className="font-bold underline decoration-1 underline-offset-4">Bravoo.in</span>
+        </a>
+
+        <Link href="/privacy" className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white">
           PRIVACY POLICY | TERMS OF USE
         </Link>
       </div>

@@ -1,6 +1,7 @@
-import { Button } from "../../components/ui/button";
 
-export const About = (): JSX.Element => {
+import { Button } from "@/components/ui/button";
+
+export default function About() {
     return (
         <div className="w-full bg-white overflow-hidden">
             {/* Hero Section with Parallax-like fixed background */}
@@ -54,6 +55,67 @@ export const About = (): JSX.Element => {
                 </div>
             </div>
 
+            {/* Founder's Story Section */}
+            <div className="w-full py-24 bg-secondary-05">
+                <div className="container mx-auto px-4 md:px-8">
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+                        {/* Founder Image - Asymmetric Layout */}
+                        <div className="lg:w-1/2 relative">
+                            <div className="relative z-10 w-full h-[600px] bg-white p-4 shadow-2xl rotate-1">
+                                <div className="w-full h-full bg-secondary-03/20 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+                                        alt="Founder of INFINITY Interiors"
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
+                                        <h3 className="text-white font-heading-04 text-3xl italic">The Visionary</h3>
+                                        <p className="text-white/80 font-body-02 text-sm tracking-widest mt-2 uppercase">Since 2000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="absolute top-10 -left-10 w-full h-full border border-primary-01/20 -z-0 hidden md:block -rotate-2"></div>
+                        </div>
+
+                        {/* Story Content */}
+                        <div className="lg:w-1/2 space-y-12">
+                            <div>
+                                <span className="font-label-medium text-secondary-02 tracking-[0.3em] uppercase text-sm block mb-4">The Untold Story</span>
+                                <h2 className="font-heading-02 text-4xl md:text-5xl text-primary-01 leading-tight">
+                                    "We fought for every inch of elegance."
+                                </h2>
+                            </div>
+
+                            <div className="space-y-8 pl-6 border-l border-primary-01/20">
+                                <div className="relative">
+                                    <span className="absolute -left-[31px] top-0 w-3 h-3 rounded-full bg-primary-01"></span>
+                                    <h3 className="font-heading-04 text-2xl text-primary-01 mb-3">The Struggle</h3>
+                                    <p className="font-body-02 text-secondary-01 leading-relaxed">
+                                        It wasn't easy. Starting in a crowded market with nothing but a sketchpad and a dream, we faced rejection and doubt. Resources were scarce, and the competition was fierce. But every "no" only sharpened our resolve to create something undeniable.
+                                    </p>
+                                </div>
+
+                                <div className="relative">
+                                    <span className="absolute -left-[31px] top-0 w-3 h-3 rounded-full bg-secondary-02"></span>
+                                    <h3 className="font-heading-04 text-2xl text-primary-01 mb-3">The Fight</h3>
+                                    <p className="font-body-02 text-secondary-01 leading-relaxed">
+                                        We didn't just compete; we outworked. We spent nights on construction sites, learning the soul of materials. We fought to prove that true luxury isn't just about expensive decor, but about the intangible feeling of a space that truly understands its owner.
+                                    </p>
+                                </div>
+
+                                <div className="relative">
+                                    <span className="absolute -left-[31px] top-0 w-3 h-3 rounded-full bg-secondary-02/50"></span>
+                                    <h3 className="font-heading-04 text-2xl text-primary-01 mb-3">The Uniqueness</h3>
+                                    <p className="font-body-02 text-secondary-01 leading-relaxed">
+                                        What sets us apart today is that fire. We don't just design; we fight for your vision. Our "shaurbkle" (struggle) became our strength. We see what others miss—the potential in a corner, the emotion in a texture. That's the INFINITY difference.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             {/* Heritage/Roots Section - Dark Background */}
             <div className="w-full bg-primary-01 text-white py-32 px-4 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 transform origin-top-right"></div>
@@ -79,4 +141,4 @@ export const About = (): JSX.Element => {
             </div>
         </div>
     );
-};
+}

@@ -1,11 +1,11 @@
 
-export const Process = (): JSX.Element => {
+export default function Process() {
     const steps = [
         {
             number: "01",
             title: "Discovery",
             description: "We begin by understanding your vision, lifestyle, and requirements. This includes site visits and detailed discussions to capture the essence of what you need.",
-            image: "https://images.unsplash.com/photo-1558442996-52eb7e25287e?q=80&w=1000&auto=format&fit=crop"
+            image:"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1000&auto=format&fit=crop"
         },
         {
             number: "02",
@@ -80,4 +80,4 @@ export const Process = (): JSX.Element => {
             </div>
         </div>
     );
-};
+}

@@ -1,5 +1,5 @@
 
-export const Lookbook = (): JSX.Element => {
+export default function Lookbook() {
     return (
         <div className="w-full bg-white">
             {/* Editorial Hero */}
@@ -85,4 +85,4 @@ export const Lookbook = (): JSX.Element => {
             </div>
         </div>
     );
-};
+}

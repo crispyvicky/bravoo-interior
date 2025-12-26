@@ -1,6 +1,9 @@
-import { SearchIcon, UserIcon, XIcon, MenuIcon, ArrowRight } from "lucide-react";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import { SearchIcon, UserIcon, X, Menu, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "../../../../components/ui/button";
 
 const navigationItems = [
@@ -14,9 +17,9 @@ const navigationItems = [
 
 export const MainHeaderSection = (): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <>
@@ -24,22 +27,22 @@ export const MainHeaderSection = (): JSX.Element => {
         <div className="w-full h-10 relative bg-primary-01 flex-shrink-0">
           <div className="flex items-center justify-center h-full relative">
             <div className="font-label-small text-primary-03 text-xs tracking-widest text-center px-4 uppercase">
-              Transforming Spaces Since 1996
+              Transforming Spaces Since 2000
             </div>
           </div>
         </div>
 
         {/* Desktop Header */}
         <div className="w-full py-4 px-4 md:px-8 lg:px-[60px] hidden md:flex items-center justify-between border-b border-gray-100">
-          <Link to="/" className="flex flex-col items-start justify-center flex-shrink-0 group">
+          <Link href="/" className="flex flex-col items-start justify-center flex-shrink-0 group">
             <h1 className="font-heading-03 font-bold text-2xl tracking-widest text-primary-01 group-hover:opacity-80 transition-opacity">INFINITY </h1>
-            <span className="text-[10px] tracking-[0.3em] text-primary-01">SINCE 1996</span>
+            <span className="text-[10px] tracking-[0.3em] text-primary-01">SINCE 2000</span>
           </Link>
 
           <nav className="flex-1 flex items-center justify-center gap-6 lg:gap-10 px-4">
             {navigationItems.map((item, index) => (
               <div key={index} className="relative group">
-                <Link to={item.path}>
+                <Link href={item.path}>
                   <Button
                     variant="ghost"
                     className={`h-auto p-0 font-label-medium text-primary-01 text-sm tracking-wider whitespace-nowrap hover:bg-transparent ${isActive(item.path) ? "font-bold" : ""}`}
@@ -53,7 +56,7 @@ export const MainHeaderSection = (): JSX.Element => {
           </nav>
 
           <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0">
-            <Link to="/contact">
+            <Link href="/contact">
               <Button variant="outline" className="hidden lg:flex border-primary-01 text-primary-01 hover:bg-primary-01 hover:text-white rounded-none tracking-widest text-xs px-6">
                 GET A QUOTE
               </Button>
@@ -69,12 +72,12 @@ export const MainHeaderSection = (): JSX.Element => {
             className="h-auto p-0 hover:bg-transparent"
             onClick={() => setIsMobileMenuOpen(true)}
           >
-            <MenuIcon className="w-6 h-6 text-primary-01" />
+            <Menu className="w-6 h-6 text-primary-01" />
           </Button>
 
-          <Link to="/" className="flex flex-col items-center justify-center">
+          <Link href="/" className="flex flex-col items-center justify-center">
             <h1 className="font-heading-03 font-bold text-xl tracking-widest text-primary-01">INFINITY </h1>
-            <span className="text-[8px] tracking-[0.2em] text-primary-01">SINCE 1996</span>
+            <span className="text-[8px] tracking-[0.2em] text-primary-01">SINCE 2000</span>
           </Link>
 
           <div className="w-6"></div> {/* Spacer for alignment */}
@@ -91,7 +94,7 @@ export const MainHeaderSection = (): JSX.Element => {
             onClick={() => setIsMobileMenuOpen(false)}
             className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
           >
-            <XIcon className="w-8 h-8" />
+            <X className="w-8 h-8" />
           </button>
 
           {/* Menu Content */}
@@ -101,7 +104,7 @@ export const MainHeaderSection = (): JSX.Element => {
             {navigationItems.map((item, index) => (
               <Link
                 key={index}
-                to={item.path}
+                href={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="group flex items-center justify-between border-b border-white/10 pb-4"
               >

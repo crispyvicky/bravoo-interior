@@ -1,41 +1,44 @@
+"use client";
+
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "../../../../components/ui/button";
 
 const categories = [
   {
     name: "Residential",
     count: "Interiors",
-    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=1000",
-    sideImageLeft: "https://images.unsplash.com/photo-1595822319083-d955fa286392?q=80&w=500",
-    sideImageRight: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=80&w=500"
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=100&w=2000",
+    sideImageLeft: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=100&w=2000",
+    sideImageRight: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?q=100&w=2000"
   },
   {
     name: "Commercial",
     count: "Spaces",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000",
-    sideImageLeft: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=500",
-    sideImageRight: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=500"
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=100&w=2000",
+    sideImageLeft: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=100&w=2000",
+    sideImageRight: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=100&w=2000"
   },
   {
     name: "Renovation",
     count: "& Restoration",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1000",
-    sideImageLeft: "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?q=80&w=500",
-    sideImageRight: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=500"
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=100&w=2000",
+    sideImageLeft: "https://images.unsplash.com/photo-1588854337221-4cf9fa96059c?q=100&w=2000",
+    sideImageRight: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=100&w=2000"
   },
   {
     name: "Bespoke",
     count: "Furniture",
-    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=80&w=1000",
-    sideImageLeft: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=500",
-    sideImageRight: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=500"
+    image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?q=100&w=2000",
+    sideImageLeft: "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=100&w=2000",
+    sideImageRight: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=100&w=2000"
   },
   {
     name: "Turnkey",
     count: "Execution",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1000",
-    sideImageLeft: "https://images.unsplash.com/photo-1574739596638-349f7b447883?q=80&w=500",
-    sideImageRight: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?q=80&w=500"
+    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=100&w=2000",
+    sideImageLeft: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=100&w=2000",
+    sideImageRight: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?q=100&w=2000"
   },
 ];
 
@@ -109,16 +112,18 @@ export const CategoryDisplaySection = (): JSX.Element => {
         </div>
 
         {/* CTA Button */}
-        <Button
-          variant="link"
-          className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)]
-            text-primary-01 text-[length:var(--button-01-font-size)]
-            tracking-[var(--button-01-letter-spacing)]
-            leading-[var(--button-01-line-height)]
-            underline [font-style:var(--button-01-font-style)] mt-8"
-        >
-          SEE MORE
-        </Button>
+        <Link href="/portfolio">
+          <Button
+            variant="link"
+            className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)]
+              text-primary-01 text-[length:var(--button-01-font-size)]
+              tracking-[var(--button-01-letter-spacing)]
+              leading-[var(--button-01-line-height)]
+              underline [font-style:var(--button-01-font-style)]"
+          >
+            SEE MORE
+          </Button>
+        </Link>
 
       </div>
     </section>

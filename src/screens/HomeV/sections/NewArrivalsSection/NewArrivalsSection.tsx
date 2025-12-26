@@ -1,93 +1,175 @@
+"use client";
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projects";
 
-import { Button } from "../../../../components/ui/button";
-
-const products = [
-  {
-    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000",
-    title: "Jubilee Hills Villa",
-    price: "Residential",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000",
-    title: "Banjara Hills Apt",
-    price: "Renovation",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000",
-    title: "Tech Park Office",
-    price: "Commercial",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000",
-    title: "Manikonda Home",
-    price: "Interiors",
-  },
-];
+// Triple the projects to create a seamless infinite loop buffer
+// [Set 1 (Buffer)] [Set 2 (Main)] [Set 3 (Buffer)]
+const allProjects = [...projects, ...projects, ...projects];
 
 export const NewArrivalsSection = (): JSX.Element => {
+  const [currentIndex, setCurrentIndex] = useState(projects.length);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [cardStride, setCardStride] = useState(324);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const autoScrollRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Responsive stride calculation
+  useEffect(() => {
+    const updateStride = () => {
+      // Mobile: 280px card + 24px gap = 304px
+      // Desktop: 300px card + 24px gap = 324px
+      if (window.innerWidth < 768) {
+        setCardStride(304);
+      } else {
+        setCardStride(324);
+      }
+    };
+
+    updateStride();
+    window.addEventListener("resize", updateStride);
+    return () => window.removeEventListener("resize", updateStride);
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    if (!isTransitioning) setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+  }, [isTransitioning]);
+
+  const prevSlide = useCallback(() => {
+    if (!isTransitioning) setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+  }, [isTransitioning]);
+
+  // Auto-scroll
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [nextSlide]);
+
+  const startAutoScroll = () => {
+    if (autoScrollRef.current) clearInterval(autoScrollRef.current);
+    autoScrollRef.current = setInterval(() => {
+      nextSlide();
+    }, 4000);
+  };
+
+  const stopAutoScroll = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+      autoScrollRef.current = null;
+    }
+  };
+
+  const handleTransitionEnd = () => {
+    // Check if we've scrolled into the third set (end buffer)
+    if (currentIndex >= 2 * projects.length) {
+      setIsTransitioning(false);
+      setCurrentIndex(currentIndex - projects.length);
+    }
+    // Check if we've scrolled into the first set (start buffer)
+    else if (currentIndex < projects.length) {
+      setIsTransitioning(false);
+      setCurrentIndex(currentIndex + projects.length);
+    }
+  };
+
   return (
-    <section className="w-full py-12 md:py-16 px-4">
-      <div className="flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
-        <div className="flex flex-col gap-6 md:gap-8 lg:w-[410px] flex-shrink-0">
-          <div className="flex items-baseline gap-2">
-            <h2 className="font-heading-04 font-[number:var(--heading-04-font-weight)] text-primary-01 text-2xl md:text-3xl lg:text-[length:var(--heading-04-font-size)] tracking-[var(--heading-04-letter-spacing)] leading-[var(--heading-04-line-height)] [font-style:var(--heading-04-font-style)]">
+    <section className="w-full py-12 md:py-24 px-4 md:px-8 lg:px-[100px] overflow-hidden">
+      <div className="container mx-auto flex flex-col lg:flex-row gap-8 md:gap-12 lg:gap-16">
+        {/* Text Column */}
+        <div className="flex flex-col gap-6 md:gap-8 lg:w-[350px] flex-shrink-0">
+          <div className="flex flex-col gap-2">
+            <span className="font-label-medium text-xs tracking-[0.2em] text-secondary-02 uppercase">
+              Recent Works
+            </span>
+            <h2 className="font-heading-03 text-3xl md:text-4xl text-primary-01 italic">
               Signature Projects
             </h2>
           </div>
 
-          <p className="font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-sm md:text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
-            A glimpse into our journey of transforming empty shells into vibrant, living stories.
+          <p className="font-body-02 text-secondary-01 text-sm leading-relaxed max-w-[300px]">
+            A glimpse into our journey of transforming empty shells into vibrant, living stories across Hyderabad.
           </p>
 
-          <Button
-            variant="link"
-            className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)] text-primary-01 text-sm md:text-[length:var(--button-01-font-size)] tracking-[var(--button-01-letter-spacing)] leading-[var(--button-01-line-height)] underline [font-style:var(--button-01-font-style)] justify-start"
-          >
-            VIEW PORTFOLIO
-          </Button>
+          <Link href="/portfolio">
+            <Button
+              variant="link"
+              className="h-auto p-0 font-button-01 text-primary-01 text-sm tracking-widest underline justify-start hover:text-primary-01/80"
+            >
+              VIEW PORTFOLIO
+            </Button>
+          </Link>
+
+          <div className="flex items-center gap-4 mt-auto pt-8">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => {
+                stopAutoScroll();
+                prevSlide();
+                // Restart auto-scroll after interactions is tricky without debounce, 
+                // but leaving it stopped on interaction or relying on mouseEnter/Leave to pause is better.
+                // For now, let's keep it simple: click stops it? Or simply pauses? 
+                // Let's rely on hover to pause, and clicks just nudge.
+              }}
+              className="h-12 w-12 rounded-full border-primary-01/10 hover:bg-primary-01 hover:text-white transition-colors"
+              aria-label="Previous project"
+            >
+              <ChevronLeftIcon className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => {
+                // stopAutoScroll(); // Optional: pause on interaction
+                nextSlide();
+              }}
+              className="h-12 w-12 rounded-full border-primary-01/10 hover:bg-primary-01 hover:text-white transition-colors"
+              aria-label="Next project"
+            >
+              <ChevronRightIcon className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
-        <div className="flex-1 flex flex-col gap-8 md:gap-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
-            {products.map((product, index) => (
-              <div key={index} className="flex flex-col gap-4">
-                <div className="aspect-[340/420] w-full overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover rounded-sm hover:scale-105 transition-transform duration-300"
-                    alt={product.title}
-                    src={product.image}
-                  />
-                </div>
-                <div className="flex justify-between items-center">
-                  <h3 className="font-heading-07 font-[number:var(--heading-07-font-weight)] text-primary-01 text-sm md:text-[length:var(--heading-07-font-size)] tracking-[var(--heading-07-letter-spacing)] leading-[var(--heading-07-line-height)] [font-style:var(--heading-07-font-style)]">
-                    {product.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-6 md:gap-9">
-            <div className="flex-1 relative h-px">
-              <div className="absolute inset-0 bg-secondary-02 opacity-30" />
-              <div className="absolute inset-0 bg-primary-01 w-[30%]" />
-            </div>
-            <div className="flex gap-2 md:gap-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-5 w-5 p-0 hover:bg-transparent"
-              >
-                <ChevronLeftIcon className="h-5 w-5 text-primary-01" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-5 w-5 p-0 hover:bg-transparent"
-              >
-                <ChevronRightIcon className="h-5 w-5 text-primary-01" />
-              </Button>
+        {/* Carousel Column */}
+        <div
+          className="flex-1 w-full min-w-0"
+          onMouseEnter={stopAutoScroll}
+          onMouseLeave={startAutoScroll}
+        >
+          <div className="w-full overflow-hidden" ref={carouselRef}>
+            <div
+              className={`flex gap-6 ${isTransitioning ? "transition-transform duration-700 ease-in-out" : ""}`}
+              style={{ transform: `translateX(-${currentIndex * cardStride}px)` }}
+              onTransitionEnd={handleTransitionEnd}
+            >
+              {allProjects.map((project, index) => (
+                <Link key={`${project.id}-idx-${index}`} href={`/projects/${project.slug}`} passHref className="block flex-shrink-0">
+                  <div className="w-[280px] md:w-[300px] group cursor-pointer">
+                    <div className="aspect-[3/4] w-full overflow-hidden bg-secondary-03/10 mb-4 relative">
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        alt={project.title}
+                        src={project.heroImage}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <h3 className="font-heading-07 text-lg text-primary-01 group-hover:underline decoration-1 underline-offset-4">
+                        {project.title}
+                      </h3>
+                      <span className="text-secondary-02 text-xs tracking-wider uppercase">
+                        {project.category}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
