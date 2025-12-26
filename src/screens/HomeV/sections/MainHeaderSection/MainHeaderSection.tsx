@@ -32,7 +32,7 @@ export const MainHeaderSection = (): JSX.Element => {
         {/* Desktop Header */}
         <div className="w-full py-4 px-4 md:px-8 lg:px-[60px] hidden md:flex items-center justify-between border-b border-gray-100">
           <Link to="/" className="flex flex-col items-start justify-center flex-shrink-0 group">
-            <h1 className="font-heading-03 font-bold text-2xl tracking-widest text-primary-01 group-hover:opacity-80 transition-opacity">BSW</h1>
+            <h1 className="font-heading-03 font-bold text-2xl tracking-widest text-primary-01 group-hover:opacity-80 transition-opacity">INFINITY </h1>
             <span className="text-[10px] tracking-[0.3em] text-primary-01">SINCE 1996</span>
           </Link>
 
@@ -73,7 +73,7 @@ export const MainHeaderSection = (): JSX.Element => {
           </Button>
 
           <Link to="/" className="flex flex-col items-center justify-center">
-            <h1 className="font-heading-03 font-bold text-xl tracking-widest text-primary-01">BSW</h1>
+            <h1 className="font-heading-03 font-bold text-xl tracking-widest text-primary-01">INFINITY </h1>
             <span className="text-[8px] tracking-[0.2em] text-primary-01">SINCE 1996</span>
           </Link>
 

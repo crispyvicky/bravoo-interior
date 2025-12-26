@@ -16,7 +16,7 @@ export const TaglineSection = (): JSX.Element => {
         <div className="w-24 h-1 bg-primary-01 mb-8 opacity-20"></div>
 
         <p className="font-body-02 text-secondary-01 text-base md:text-lg leading-relaxed max-w-2xl mb-10">
-          Since 1996, BSW Interiors has been at the forefront of luxury design, creating environments that inspire, comfort, and endure. We don't just fill rooms; we curate lifestyles.
+          Since 1996, INFINITY  Interiors has been at the forefront of luxury design, creating environments that inspire, comfort, and endure. We don't just fill rooms; we curate lifestyles.
         </p>
 
         <Button

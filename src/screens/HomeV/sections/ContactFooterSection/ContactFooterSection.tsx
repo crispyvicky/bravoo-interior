@@ -83,7 +83,7 @@ export const ContactFooterSection = (): JSX.Element => {
             <div className="flex gap-2 md:gap-4 items-start">
               <Checkbox className="w-4 h-4 rounded border-[#f8f5f3] mt-1" />
               <p className="flex-1 font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
-                I've read the Privacy Policy and I consent to BSW Interiors sending me marketing communications
+                I've read the Privacy Policy and I consent to INFINITY  Interiors sending me marketing communications
               </p>
             </div>
           </div>
@@ -144,7 +144,7 @@ export const ContactFooterSection = (): JSX.Element => {
 
       <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8">
         <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center md:text-left">
-          © 2024 BSW INTERIORS. ALL RIGHTS RESERVED.
+          © 2024 INFINITY  INTERIORS. ALL RIGHTS RESERVED.
         </p>
 
         <Link to="/privacy" className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white">

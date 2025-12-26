@@ -45,10 +45,10 @@ export const About = (): JSX.Element => {
                         </h2>
                         <div className="w-32 h-1 bg-primary-01 opacity-20"></div>
                         <p className="font-body-01 text-lg text-secondary-01 leading-relaxed">
-                            This philosophy drives everything we do at BSW Interiors. Founded in 1996 in Hyderabad, our journey is not just about decorating rooms; it's about elevating lifestyles. We believe that every space should be a vantage point—a place where you feel at the peak of comfort, style, and inspiration.
+                            This philosophy drives everything we do at INFINITY  Interiors. Founded in 1996 in Hyderabad, our journey is not just about decorating rooms; it's about elevating lifestyles. We believe that every space should be a vantage point—a place where you feel at the peak of comfort, style, and inspiration.
                         </p>
                         <p className="font-body-01 text-lg text-secondary-01 leading-relaxed">
-                            BSW stands for <strong>Badigar Space Works</strong>. For nearly 30 years, our family of artisans has blended traditional Indian craftsmanship with modern design sensibilities.
+                            INFINITY  stands for <strong>Badigar Space Works</strong>. For nearly 30 years, our family of artisans has blended traditional Indian craftsmanship with modern design sensibilities.
                         </p>
                     </div>
                 </div>

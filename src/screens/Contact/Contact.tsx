@@ -14,14 +14,14 @@ export const Contact = (): JSX.Element => {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-01/80 to-transparent md:from-transparent md:to-primary-01/90" />
 
                 <div className="absolute bottom-8 left-8 md:bottom-20 md:left-20 max-w-md p-8 md:p-0">
-                    <h2 className="font-heading-02 text-4xl md:text-5xl mb-6">BSW Interiors</h2>
+                    <h2 className="font-heading-02 text-4xl md:text-5xl mb-6">INFINITY  Interiors</h2>
                     <address className="not-italic text-gray-300 text-lg space-y-2 leading-relaxed opacity-90">
                         <p>Plot No. 123, Road No. 45</p>
                         <p>yellamabanda, Hyderabad</p>
                         <p>Telangana, India 500033</p>
                         <br />
                         <p className="text-white font-medium">+91 98765 43210</p>
-                        <p>hello@bswinteriors.com</p>
+                        <p>hello@INFINITY interiors.com</p>
                     </address>
                 </div>
             </div>
