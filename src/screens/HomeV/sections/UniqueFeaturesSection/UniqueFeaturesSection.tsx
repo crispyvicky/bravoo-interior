@@ -1,31 +1,31 @@
-import React from "react";
+
 
 const features = [
   {
-    label: "FIND",
-    heading: "Unique & Modren Products",
+    label: "LEGACY",
+    heading: "Rooted in Heritage",
     description:
-      "A considered line of versatile products designed to work in every room",
+      "Bringing 30 years of family tradition and expertise to every line we draw.",
   },
   {
-    label: "BUY",
-    heading: "Expertly Vettted Quality",
+    label: "CRAFT",
+    heading: "Artisanal Excellence",
     description:
-      "Beautiful, durable materials selected for a lover impact and longer lifespan",
+      "We believe in the human touch. Every detail is curated with purpose and precision.",
   },
   {
-    label: "COLLECT",
-    heading: "Delivery At Your door",
+    label: "SOUL",
+    heading: "Holistic Living",
     description:
-      "Support, guidance, and original content to help you organize with intention",
+      "Designing spaces that breathe, inspiring peace and productivity in your daily life.",
   },
 ];
 
 export const UniqueFeaturesSection = (): JSX.Element => {
   return (
-    <section className="w-full flex flex-col md:flex-row justify-center gap-8 md:gap-[177px] py-8 px-4">
+    <section className="w-full flex flex-col md:flex-row flex-wrap justify-center gap-8 lg:gap-[100px] xl:gap-[177px] py-12 px-4 container mx-auto">
       {features.map((feature, index) => (
-        <div key={index} className="w-full md:w-[380px] flex flex-col items-center">
+        <div key={index} className="w-full md:w-[calc(50%-1rem)] lg:w-[30%] max-w-[380px] flex flex-col items-center">
           <div className="font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-sm md:text-[length:var(--label-medium-font-size)] text-center tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] whitespace-nowrap [font-style:var(--label-medium-font-style)]">
             {feature.label}
           </div>
@@ -34,7 +34,7 @@ export const UniqueFeaturesSection = (): JSX.Element => {
             {feature.heading}
           </h3>
 
-          <p className="w-full md:w-[374px] mt-5 font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-sm md:text-[length:var(--body-02-font-size)] text-center tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
+          <p className="w-full mt-4 md:mt-5 font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-sm md:text-[length:var(--body-02-font-size)] text-center tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
             {feature.description}
           </p>
         </div>

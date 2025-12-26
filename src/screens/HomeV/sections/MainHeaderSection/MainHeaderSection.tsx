@@ -1,195 +1,125 @@
-import { SearchIcon, ShoppingCartIcon, UserIcon, XIcon, MenuIcon } from "lucide-react";
-import React, { useState } from "react";
+import { SearchIcon, UserIcon, XIcon, MenuIcon, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "../../../../components/ui/button";
-import { Separator } from "../../../../components/ui/separator";
 
 const navigationItems = [
-  { label: "NEW IN", active: true },
-  { label: "FURNITURES", active: false },
-  { label: "LIGHTS", active: false },
-  { label: "RUGS", active: false },
-  { label: "DECOR", active: false },
-  { label: "ACCESSORIES", active: false },
+  { label: "PORTFOLIO", path: "/portfolio" },
+  { label: "SERVICES", path: "/services" },
+  { label: "PROCESS", path: "/process" },
+  { label: "LOOKBOOK", path: "/lookbook" },
+  { label: "ABOUT", path: "/about" },
+  { label: "CONTACT", path: "/contact" },
 ];
-
-const leftMenuItems = [{ label: "ABOUT" }, { label: "LOOKBOOK" }];
 
 export const MainHeaderSection = (): JSX.Element => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="w-full flex flex-col bg-transparent">
-      <div className="w-full h-10 relative bg-primary-01">
-        <div className="flex items-center justify-center h-full relative">
-          <div className="font-label-small font-[number:var(--label-small-font-weight)] text-primary-03 text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center px-4">
-            FREE WORDWIDE SHIPPING DELIVERY OVER $300
+    <>
+      <header className="w-full flex flex-col sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div className="w-full h-10 relative bg-primary-01 flex-shrink-0">
+          <div className="flex items-center justify-center h-full relative">
+            <div className="font-label-small text-primary-03 text-xs tracking-widest text-center px-4 uppercase">
+              Transforming Spaces Since 1996
+            </div>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-[10px] top-1/2 -translate-y-1/2 h-auto p-0 hover:bg-transparent md:hidden"
-          >
-            <XIcon className="w-4 h-4 text-primary-03" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Desktop Header */}
-      <div className="w-full h-[108px] relative flex items-center justify-between px-4 md:px-[125px] mt-[29px] hidden md:flex">
-        <div className="flex items-center gap-[50px] lg:gap-[110px]">
-          {leftMenuItems.map((item, index) => (
-            <Button
-              key={index}
-              variant="ghost"
-              className="h-auto p-0 font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:bg-transparent"
-            >
-              {item.label}
-            </Button>
-          ))}
         </div>
 
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 flex items-center justify-center w-[200px] lg:w-[340px] h-[30px]">
-          <img className="w-[120px] lg:w-[205.05px] h-[31.5px]" alt="Logo" src="/logo.png" />
-        </div>
+        {/* Desktop Header */}
+        <div className="w-full py-4 px-4 md:px-8 lg:px-[60px] hidden md:flex items-center justify-between border-b border-gray-100">
+          <Link to="/" className="flex flex-col items-start justify-center flex-shrink-0 group">
+            <h1 className="font-heading-03 font-bold text-2xl tracking-widest text-primary-01 group-hover:opacity-80 transition-opacity">BSW</h1>
+            <span className="text-[10px] tracking-[0.3em] text-primary-01">SINCE 1996</span>
+          </Link>
 
-        <nav className="flex items-center gap-[30px] lg:gap-[88px] absolute left-1/2 top-[73px] -translate-x-1/2 translate-x-[40px] lg:translate-x-[93px]">
-          {navigationItems.map((item, index) => (
-            <div key={index} className="relative">
-              <Button
-                variant="ghost"
-                className="h-auto p-0 font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-[length:var(--label-medium-font-size)] text-center tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] whitespace-nowrap [font-style:var(--label-medium-font-style)] hover:bg-transparent"
-              >
-                {item.label}
-              </Button>
-              {item.active && (
-                <div className="absolute -bottom-[34px] left-1/2 -translate-x-1/2 w-[72px] h-[3px] bg-primary-01" />
-              )}
-            </div>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-[30px] lg:gap-[88px]">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-auto p-0 hover:bg-transparent"
-          >
-            <SearchIcon className="w-6 h-6 text-primary-01" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-auto p-0 hover:bg-transparent"
-          >
-            <UserIcon className="w-6 h-6 text-primary-01" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-auto p-0 hover:bg-transparent"
-          >
-            <ShoppingCartIcon className="w-6 h-6 text-primary-01" />
-          </Button>
-        </div>
-
-        <Separator className="absolute bottom-0 left-0 w-full" />
-      </div>
-
-      {/* Mobile Header */}
-      <div className="w-full h-[80px] flex items-center justify-between px-4 md:hidden">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-auto p-0 hover:bg-transparent"
-          onClick={() => setIsMobileMenuOpen(true)}
-        >
-          <MenuIcon className="w-6 h-6 text-primary-01" />
-        </Button>
-
-        <div className="flex items-center justify-center">
-          <img className="w-[120px] h-[31.5px]" alt="Logo" src="/logo.png" />
-        </div>
-
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-auto p-0 hover:bg-transparent"
-          >
-            <SearchIcon className="w-5 h-5 text-primary-01" />
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-auto p-0 hover:bg-transparent"
-          >
-            <ShoppingCartIcon className="w-5 h-5 text-primary-01" />
-          </Button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white">
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-4 border-b">
-              <img className="w-[120px] h-[31.5px]" alt="Logo" src="/logo.png" />
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-auto p-0 hover:bg-transparent"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <XIcon className="w-6 h-6 text-primary-01" />
-              </Button>
-            </div>
-
-            <div className="flex-1 overflow-y-auto p-4">
-              <div className="flex flex-col gap-6 mb-8">
-                <div className="flex flex-col gap-4">
-                  <h3 className="font-heading-07 font-[number:var(--heading-07-font-weight)] text-primary-01 text-[length:var(--heading-07-font-size)] tracking-[var(--heading-07-letter-spacing)] leading-[var(--heading-07-line-height)] [font-style:var(--heading-07-font-style)]">
-                    MAIN MENU
-                  </h3>
-                  {navigationItems.map((item, index) => (
-                    <Button
-                      key={index}
-                      variant="ghost"
-                      className={`h-auto p-0 justify-start font-label-big font-[number:var(--label-big-font-weight)] text-primary-01 text-[length:var(--label-big-font-size)] tracking-[var(--label-big-letter-spacing)] leading-[var(--label-big-line-height)] [font-style:var(--label-big-font-style)] hover:bg-transparent ${item.active ? "font-bold" : ""}`}
-                    >
-                      {item.label}
-                    </Button>
-                  ))}
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <h3 className="font-heading-07 font-[number:var(--heading-07-font-weight)] text-primary-01 text-[length:var(--heading-07-font-size)] tracking-[var(--heading-07-letter-spacing)] leading-[var(--heading-07-line-height)] [font-style:var(--heading-07-font-style)]">
-                    MORE
-                  </h3>
-                  {leftMenuItems.map((item, index) => (
-                    <Button
-                      key={index}
-                      variant="ghost"
-                      className="h-auto p-0 justify-start font-label-big font-[number:var(--label-big-font-weight)] text-primary-01 text-[length:var(--label-big-font-size)] tracking-[var(--label-big-letter-spacing)] leading-[var(--label-big-line-height)] [font-style:var(--label-big-font-style)] hover:bg-transparent"
-                    >
-                      {item.label}
-                    </Button>
-                  ))}
-                </div>
+          <nav className="flex-1 flex items-center justify-center gap-6 lg:gap-10 px-4">
+            {navigationItems.map((item, index) => (
+              <div key={index} className="relative group">
+                <Link to={item.path}>
+                  <Button
+                    variant="ghost"
+                    className={`h-auto p-0 font-label-medium text-primary-01 text-sm tracking-wider whitespace-nowrap hover:bg-transparent ${isActive(item.path) ? "font-bold" : ""}`}
+                  >
+                    {item.label}
+                  </Button>
+                </Link>
+                <div className={`absolute -bottom-[21px] left-1/2 -translate-x-1/2 w-full h-[2px] bg-primary-01 transition-transform duration-300 scale-x-0 group-hover:scale-x-100 ${isActive(item.path) ? "scale-x-100" : ""}`} />
               </div>
-            </div>
+            ))}
+          </nav>
 
-            <div className="p-4 border-t flex gap-4">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-auto p-0 hover:bg-transparent"
-              >
-                <UserIcon className="w-6 h-6 text-primary-01" />
+          <div className="flex items-center gap-4 lg:gap-6 flex-shrink-0">
+            <Link to="/contact">
+              <Button variant="outline" className="hidden lg:flex border-primary-01 text-primary-01 hover:bg-primary-01 hover:text-white rounded-none tracking-widest text-xs px-6">
+                GET A QUOTE
               </Button>
-            </div>
+            </Link>
           </div>
         </div>
-      )}
-    </header>
+
+        {/* Mobile Header Bar */}
+        <div className="w-full h-[70px] flex items-center justify-between px-4 md:hidden border-b border-gray-100 bg-white z-50 relative">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-auto p-0 hover:bg-transparent"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <MenuIcon className="w-6 h-6 text-primary-01" />
+          </Button>
+
+          <Link to="/" className="flex flex-col items-center justify-center">
+            <h1 className="font-heading-03 font-bold text-xl tracking-widest text-primary-01">BSW</h1>
+            <span className="text-[8px] tracking-[0.2em] text-primary-01">SINCE 1996</span>
+          </Link>
+
+          <div className="w-6"></div> {/* Spacer for alignment */}
+        </div>
+      </header>
+
+      {/* Creative Full Screen Mobile Menu */}
+      <div
+        className={`fixed inset-0 z-[100] bg-primary-01 text-white transition-all duration-500 ease-in-out transform ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}
+      >
+        <div className="flex flex-col h-full relative">
+          {/* Close Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-6 right-6 p-2 text-white/80 hover:text-white transition-colors"
+          >
+            <XIcon className="w-8 h-8" />
+          </button>
+
+          {/* Menu Content */}
+          <div className="flex-1 flex flex-col justify-center px-8 space-y-8">
+            <span className="text-white/30 tracking-[0.4em] text-xs font-light uppercase mb-4">Navigation</span>
+
+            {navigationItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="group flex items-center justify-between border-b border-white/10 pb-4"
+              >
+                <span className={`font-heading-02 text-3xl md:text-5xl transition-all duration-300 ${isActive(item.path) ? 'text-white translate-x-4' : 'text-white/60 group-hover:text-white group-hover:translate-x-4'}`}>
+                  {item.label}
+                </span>
+                <ArrowRight className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-4 group-hover:0" />
+              </Link>
+            ))}
+          </div>
+
+          {/* Footer in Menu */}
+          <div className="p-8 bg-white/5 border-t border-white/10">
+            <p className="text-white/50 text-sm mb-2">Hyderabad, India</p>
+            <p className="text-xl font-heading-04 italic">BADIGAR SPACE WORKS</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };

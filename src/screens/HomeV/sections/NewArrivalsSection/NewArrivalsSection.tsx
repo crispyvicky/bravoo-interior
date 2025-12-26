@@ -1,27 +1,27 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import React from "react";
+
 import { Button } from "../../../../components/ui/button";
 
 const products = [
   {
-    image: "/rectangle-202-2.svg",
-    title: "Arm Sofas",
-    price: "$45.80",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000",
+    title: "Jubilee Hills Villa",
+    price: "Residential",
   },
   {
-    image: "/rectangle-202-3.svg",
-    title: "Arm Sofas",
-    price: "$45.80",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1000",
+    title: "Banjara Hills Apt",
+    price: "Renovation",
   },
   {
-    image: "/rectangle-202-1.svg",
-    title: "Arm Sofas",
-    price: "$45.80",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000",
+    title: "Tech Park Office",
+    price: "Commercial",
   },
   {
-    image: "/rectangle-202.svg",
-    title: "Arm Sofas",
-    price: "$45.80",
+    image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=1000",
+    title: "Manikonda Home",
+    price: "Interiors",
   },
 ];
 
@@ -32,24 +32,19 @@ export const NewArrivalsSection = (): JSX.Element => {
         <div className="flex flex-col gap-6 md:gap-8 lg:w-[410px] flex-shrink-0">
           <div className="flex items-baseline gap-2">
             <h2 className="font-heading-04 font-[number:var(--heading-04-font-weight)] text-primary-01 text-2xl md:text-3xl lg:text-[length:var(--heading-04-font-size)] tracking-[var(--heading-04-letter-spacing)] leading-[var(--heading-04-line-height)] [font-style:var(--heading-04-font-style)]">
-              New Arrivals
+              Signature Projects
             </h2>
-            <span className="text-primary-01 font-label-medium font-[number:var(--label-medium-font-weight)] text-sm md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)]">
-              (56)
-            </span>
           </div>
 
           <p className="font-body-02 font-[number:var(--body-02-font-weight)] text-secondary-01 text-sm md:text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)]">
-            We&apos;ve designed and curated pieces that are a cut above your
-            average home goods, because when you level up your everyday objects,
-            you elevate your daily rituals.
+            A glimpse into our journey of transforming empty shells into vibrant, living stories.
           </p>
 
           <Button
             variant="link"
             className="h-auto p-0 font-button-01 font-[number:var(--button-01-font-weight)] text-primary-01 text-sm md:text-[length:var(--button-01-font-size)] tracking-[var(--button-01-letter-spacing)] leading-[var(--button-01-line-height)] underline [font-style:var(--button-01-font-style)] justify-start"
           >
-            VIEW ALL
+            VIEW PORTFOLIO
           </Button>
         </div>
 
@@ -59,7 +54,7 @@ export const NewArrivalsSection = (): JSX.Element => {
               <div key={index} className="flex flex-col gap-4">
                 <div className="aspect-[340/420] w-full overflow-hidden">
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-sm hover:scale-105 transition-transform duration-300"
                     alt={product.title}
                     src={product.image}
                   />
@@ -68,9 +63,6 @@ export const NewArrivalsSection = (): JSX.Element => {
                   <h3 className="font-heading-07 font-[number:var(--heading-07-font-weight)] text-primary-01 text-sm md:text-[length:var(--heading-07-font-size)] tracking-[var(--heading-07-letter-spacing)] leading-[var(--heading-07-line-height)] [font-style:var(--heading-07-font-style)]">
                     {product.title}
                   </h3>
-                  <span className="font-label-medium font-[number:var(--label-medium-font-weight)] text-primary-01 text-sm md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)]">
-                    {product.price}
-                  </span>
                 </div>
               </div>
             ))}

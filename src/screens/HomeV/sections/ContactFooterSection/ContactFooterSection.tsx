@@ -1,5 +1,5 @@
-import { ChevronDownIcon } from "lucide-react";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "../../../../components/ui/button";
 import { Checkbox } from "../../../../components/ui/checkbox";
 import { Input } from "../../../../components/ui/input";
@@ -8,21 +8,27 @@ import { Separator } from "../../../../components/ui/separator";
 const footerColumns = [
   {
     links: [
-      "ALL PRODUCTR",
-      "BEST SELLERS",
-      "NEW ARRIVALS",
-      "LOWEST PRICES",
-      "DELIVERY",
+      { label: "PORTFOLIO", path: "/portfolio" },
+      { label: "SERVICES", path: "/services" },
+      { label: "PROCESS", path: "/process" },
+      { label: "LOOKBOOK", path: "/lookbook" },
     ],
   },
   {
-    links: ["PRIVACY POLICY", "ORDER ONLINE", "CONTACT US", "RETURNS & CLAIMS"],
+    links: [
+      { label: "ABOUT US", path: "/about" },
+      { label: "CONTACT", path: "/contact" },
+      { label: "CAREERS", path: "/contact" },
+      { label: "MEDIA", path: "/lookbook" },
+    ],
   },
   {
-    links: ["ABOUT US", "OUR PROMISE", "MY ACCOUNT"],
-  },
-  {
-    links: ["BLOG", "REVIEWS", "PRIVACY POLICY", "LOOKBOOK"],
+    links: [
+      { label: "RESIDENTIAL", path: "/services" },
+      { label: "COMMERCIAL", path: "/services" },
+      { label: "HOSPITALITY", path: "/services" },
+      { label: "BESPOKE", path: "/services" },
+    ],
   },
 ];
 
@@ -33,260 +39,117 @@ const socialLinks = [
   { name: "TWITTER" },
 ];
 
-const paymentMethods = [
-  {
-    name: "Amazon",
-    image: "/amazon.png",
-    className: "mt-[12.8px] w-[39.16px] h-[7.72px] ml-[3.2px]",
-  },
-  {
-    name: "Visa",
-    image: "/xmlid-34-.svg",
-    className: "absolute w-[62.06%] h-[37.36%] top-[32.50%] left-[18.97%]",
-    isRelative: true,
-  },
-  {
-    name: "Mastercard",
-    images: [
-      {
-        src: "/shape.svg",
-        className: "absolute w-[12.96%] h-[27.85%] top-[32.44%] left-[45.58%]",
-      },
-      {
-        src: "/shape-3.svg",
-        className: "absolute w-[12.01%] h-[20.30%] top-[40.62%] left-[58.48%]",
-      },
-      {
-        src: "/path-2.svg",
-        className: "absolute w-[13.57%] h-[27.46%] top-[41.24%] left-[70.92%]",
-      },
-      {
-        src: "/path-4.svg",
-        className: "absolute w-[10.94%] h-[15.02%] top-[43.33%] left-[26.90%]",
-      },
-      {
-        src: "/path-1.svg",
-        className: "absolute w-[17.72%] h-[12.94%] top-[49.29%] left-[16.73%]",
-      },
-      {
-        src: "/path.svg",
-        className: "absolute w-[4.99%] h-[14.37%] top-[39.04%] left-[15.51%]",
-      },
-      {
-        src: "/path-3.svg",
-        className: "absolute w-[17.80%] h-[12.94%] top-[30.22%] left-[16.73%]",
-      },
-    ],
-    isMultiple: true,
-  },
-  {
-    name: "American Express",
-    images: [
-      {
-        src: "/shape-1.svg",
-        className: "absolute w-[20.76%] h-[72.61%] top-[12.50%] left-[62.08%]",
-      },
-      {
-        src: "/shape-4.svg",
-        className: "absolute w-[20.75%] h-[72.61%] top-[12.50%] left-[15.51%]",
-      },
-      {
-        src: "/shape-2.svg",
-        className: "absolute w-[20.75%] h-[72.61%] top-[12.50%] left-[38.80%]",
-      },
-    ],
-    isMultiple: true,
-  },
-  {
-    name: "Discover",
-    images: [
-      {
-        src: "/path-7.svg",
-        className: "absolute w-[17.85%] h-[46.16%] top-[26.28%] left-[41.31%]",
-      },
-      {
-        src: "/path-6.svg",
-        className: "absolute w-[33.00%] h-[58.71%] top-[20.00%] left-[17.24%]",
-      },
-      {
-        src: "/path-5.svg",
-        className: "absolute w-[33.00%] h-[58.71%] top-[20.00%] left-[50.22%]",
-      },
-    ],
-    isMultiple: true,
-  },
-  {
-    name: "PayPal",
-    images: [
-      {
-        src: "/polygon9.svg",
-        className: "absolute w-[10.82%] h-[35.00%] top-[33.58%] left-[37.74%]",
-      },
-      {
-        src: "/path11.svg",
-        className: "absolute w-[19.97%] h-[36.16%] top-[32.95%] left-[48.56%]",
-      },
-      {
-        src: "/path13.svg",
-        className: "absolute w-[23.89%] h-[35.00%] top-[33.58%] left-[67.09%]",
-      },
-      {
-        src: "/path15.svg",
-        className: "absolute w-[23.48%] h-[34.96%] top-[33.58%] left-[15.74%]",
-      },
-      {
-        src: "/path17.svg",
-        className: "absolute w-[16.16%] h-[19.03%] top-[33.58%] left-[8.79%]",
-      },
-    ],
-    isMultiple: true,
-  },
-];
-
 export const ContactFooterSection = (): JSX.Element => {
   return (
-    <footer className="w-full bg-primary-01 py-12 md:py-20 px-4 md:px-[170px]">
+    <footer className="w-full bg-primary-01 py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-[170px]">
       <div className="flex flex-col gap-8 md:gap-[79px]">
         <div className="flex flex-col items-center gap-8 md:gap-[79px]">
-          <h2 className="w-full md:w-[809px] font-heading-03 font-[number:var(--heading-03-font-weight)] [font-style:var(--heading-03-font-style)] text-primary-03 text-2xl md:text-3xl lg:text-[length:var(--heading-03-font-size)] text-center tracking-[var(--heading-03-letter-spacing)] leading-[var(--heading-03-line-height)]">
-            We Provide best handpicked home decor
+          <h2 className="w-full max-w-[809px] font-heading-03 font-[number:var(--heading-03-font-weight)] [font-style:var(--heading-03-font-style)] text-primary-03 text-3xl md:text-4xl lg:text-5xl text-center tracking-[var(--heading-03-letter-spacing)] leading-tight mb-4">
+            TRANSFORMING HOUSES INTO HOMES WITH SOUL.
           </h2>
 
-          <Button
-            variant="outline"
-            className="w-full md:w-[301px] h-[50px] md:h-[69px] bg-transparent border-[#fcfbfa] hover:bg-transparent"
-          >
-            <span className="font-button-02 font-[number:var(--button-02-font-weight)] text-primary-03 text-sm md:text-[length:var(--button-02-font-size)] tracking-[var(--button-02-letter-spacing)] leading-[var(--button-02-line-height)] [font-style:var(--button-02-font-style)]">
-              EXPLORE OUR PRODUCTS
-            </span>
-          </Button>
+          <div className="flex flex-col items-center gap-4">
+            <Link to="/contact">
+              <Button
+                variant="outline"
+                className="w-full md:w-[301px] h-[50px] md:h-[69px] bg-transparent border-[#fcfbfa] hover:bg-transparent"
+              >
+                <span className="font-button-02 font-[number:var(--button-02-font-weight)] text-primary-03 text-sm md:text-[length:var(--button-02-font-size)] tracking-[var(--button-02-letter-spacing)] leading-[var(--button-02-line-height)] [font-style:var(--button-02-font-style)]">
+                  START YOUR JOURNEY
+                </span>
+              </Button>
+            </Link>
+            <p className="text-secondary-03 text-xs tracking-widest opacity-80">
+              WE SPEAK ENGLISH, TELUGU & HINDI
+            </p>
+          </div>
         </div>
 
-        <Separator className="bg-secondary-03 h-px" />
+        <Separator className="bg-secondary-03 h-px opacity-20" />
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-[104px]">
           <div className="flex-1 flex flex-col gap-6 md:gap-8">
             <h3 className="font-label-big font-[number:var(--label-big-font-weight)] text-secondary-03 text-sm md:text-[length:var(--label-big-font-size)] tracking-[var(--label-big-letter-spacing)] leading-[var(--label-big-line-height)] [font-style:var(--label-big-font-style)]">
-              SUBSCRIBE TO RECEIVE GRAPE NEWS &amp; OFFERS
+              SUBSCRIBE TO RECEIVE DESIGN INSIGHTS
             </h3>
 
-            <div className="relative bg-primary-02 h-[50px] md:h-[68px]">
+            <div className="relative bg-white/5 h-[50px] md:h-[68px]">
               <Input
                 placeholder="Enter your email"
-                className="h-full bg-transparent border-0 text-secondary-02 font-body-02 font-[number:var(--body-02-font-weight)] text-sm md:text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)] placeholder:text-secondary-02 px-4 md:px-6"
-              />
-              <img
-                className="absolute top-1/2 -translate-y-1/2 right-4 md:right-6 w-5 md:w-6 h-5 md:h-6 pointer-events-none"
-                alt="Right arrow"
-                src="/right-arrow.svg"
+                className="h-full bg-transparent border-0 text-secondary-03 font-body-02 font-[number:var(--body-02-font-weight)] text-sm md:text-[length:var(--body-02-font-size)] tracking-[var(--body-02-letter-spacing)] leading-[var(--body-02-line-height)] [font-style:var(--body-02-font-style)] placeholder:text-secondary-03/50 px-4 md:px-6"
               />
             </div>
 
             <div className="flex gap-2 md:gap-4 items-start">
               <Checkbox className="w-4 h-4 rounded border-[#f8f5f3] mt-1" />
               <p className="flex-1 font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
-                I&#39;ve read the Privacy Policy and I consent to Halal Interior
-                sending me marketing communications
+                I've read the Privacy Policy and I consent to BSW Interiors sending me marketing communications
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-[104px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-[60px]">
             {footerColumns.map((column, columnIndex) => (
               <nav key={columnIndex} className="flex flex-col gap-3 md:gap-[19px]">
                 {column.links.map((link, linkIndex) => (
-                  <a
+                  <Link
                     key={linkIndex}
-                    href="#"
-                    className="font-label-medium font-[number:var(--label-medium-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:text-primary-03 transition-colors"
+                    to={link.path}
+                    className="font-label-medium font-[number:var(--label-medium-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-medium-font-size)] tracking-[var(--label-medium-letter-spacing)] leading-[var(--label-medium-line-height)] [font-style:var(--label-medium-font-style)] hover:text-white transition-colors"
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 ))}
               </nav>
             ))}
           </div>
         </div>
 
-        <Separator className="bg-secondary-03 h-px" />
+        <Separator className="bg-secondary-03 h-px opacity-20" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 md:gap-3">
-            <img className="w-6 h-4" alt="Us" src="/us.svg" />
             <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
-              United States
+              Hyderabad, India
             </span>
-            <ChevronDownIcon className="w-3 md:w-4 h-3 md:h-4 text-secondary-03" />
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
             <span className="font-caption font-[number:var(--caption-font-weight)] text-secondary-03 text-xs md:text-[length:var(--caption-font-size)] tracking-[var(--caption-letter-spacing)] leading-[var(--caption-line-height)] [font-style:var(--caption-font-style)]">
-              We Accept
+              Connect with us
             </span>
-
-            <div className="flex gap-2 md:gap-4">
-              {paymentMethods.map((method, index) => (
-                <div
-                  key={index}
-                  className="w-8 md:w-[46px] h-6 md:h-8 bg-primary-03 rounded relative flex items-center justify-center"
-                >
-                  {method.isMultiple ? (
-                    method.images?.map((img, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className={img.className}
-                        alt={`${method.name} ${imgIndex}`}
-                        src={img.src}
-                      />
-                    ))
-                  ) : method.isRelative ? (
-                    <img
-                      className={method.className}
-                      alt={method.name}
-                      src={method.image}
-                    />
-                  ) : (
-                    <img
-                      className={method.className}
-                      alt={method.name}
-                      src={method.image}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
+      </div>
 
-        <Separator className="bg-secondary-03 h-px" />
+      <Separator className="bg-secondary-03 h-px mt-8 opacity-20" />
 
-        <div className="relative">
-          <div className="grid grid-cols-2 md:grid-cols-4 h-auto md:h-[58px]">
-            {socialLinks.map((social, index) => (
-              <React.Fragment key={index}>
-                <a
-                  href="#"
-                  className="flex items-center justify-center font-label-small font-[number:var(--label-small-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-primary-03 transition-colors border-l border-secondary-03 first:border-l-0 py-3 md:py-0"
-                >
-                  {social.name}
-                </a>
-              </React.Fragment>
-            ))}
-          </div>
-          <Separator className="bg-secondary-03 h-px mt-0" />
+      <div className="relative">
+        <div className="grid grid-cols-2 md:grid-cols-4 h-auto md:h-[58px]">
+          {socialLinks.map((social, index) => (
+            <React.Fragment key={index}>
+              <a
+                href="#"
+                className="flex items-center justify-center font-label-small font-[number:var(--label-small-font-weight)] text-secondary-03 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white transition-colors border-l border-secondary-03/20 first:border-l-0 py-3 md:py-0"
+              >
+                {social.name}
+              </a>
+            </React.Fragment>
+          ))}
         </div>
+        <Separator className="bg-secondary-03 h-px mt-0 opacity-20" />
+      </div>
 
-        <Separator className="bg-secondary-03 h-px" />
+      <Separator className="bg-secondary-03 h-px opacity-20" />
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center md:text-left">
-            © 2021 CHIRANJITH.COM. ALL RIGHTS RESERVED.
-          </p>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-2 mt-8">
+        <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] text-center md:text-left">
+          © 2024 BSW INTERIORS. ALL RIGHTS RESERVED.
+        </p>
 
-          <p className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)]">
-            PRIVACY POLICY | TERMS OF USE
-          </p>
-        </div>
+        <Link to="/privacy" className="font-label-small font-[number:var(--label-small-font-weight)] text-secondary-02 text-xs md:text-[length:var(--label-small-font-size)] text-center md:text-right tracking-[var(--label-small-letter-spacing)] leading-[var(--label-small-line-height)] [font-style:var(--label-small-font-style)] hover:text-white">
+          PRIVACY POLICY | TERMS OF USE
+        </Link>
       </div>
     </footer>
   );

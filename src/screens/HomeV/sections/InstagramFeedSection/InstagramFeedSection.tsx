@@ -25,7 +25,7 @@ export const InstagramFeedSection = (): JSX.Element => {
     <section className="w-full py-8 md:py-10 px-4">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 md:mb-[51px]">
         <h2 className="font-heading-05 font-[number:var(--heading-05-font-weight)] text-primary-01 text-3xl md:text-[length:var(--heading-05-font-size)] tracking-[var(--heading-05-letter-spacing)] leading-[var(--heading-05-line-height)] [font-style:var(--heading-05-font-style)]">
-          #halallab
+          #PAVAN
         </h2>
 
         <div className="flex items-center gap-2">
